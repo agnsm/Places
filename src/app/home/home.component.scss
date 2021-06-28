@@ -1,0 +1,78 @@
+$light-blue: #c1bfc2;
+$very-light-blue: #cbd0d4;
+
+.main-container {
+  background: {
+    image: url(../../assets/images/bg-small.jpg);
+    position: center;
+    size: cover;
+  }
+  min-height: 100vh;
+  min-width: 100vw;
+  padding: 0 5%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.heading {
+  font-family: 'Poiret One', cursive;
+  position: fixed;
+  top: 5%;
+  padding: 0 5%;
+}
+
+h5 {
+  margin-top: 25px;
+}
+
+.form-wrapper {
+  padding: 3%;
+  background-color: rgba(15, 15, 15, 0.7);
+}
+
+form {
+  margin-top: 15rem;
+  width: 100%;
+}
+
+label {
+  color: $light-blue;
+}
+
+input {
+  text-align: center;
+  background-color: $light-blue;
+
+  &:focus {
+    background-color: $very-light-blue;
+    box-shadow: none;
+  }
+}
+
+.validation-info {
+  margin-top: 10px;
+  text-align: center;
+  color: #cf7b47;
+  font-size: 0.75rem;
+}
+
+button {
+  margin-top: 75px;
+  padding: 10px 75px;
+  background-color: rgba(15, 15, 15, 0.7);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px 4px;
+  color: #b67f6c;
+  font-family: 'Poiret One', cursive;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 7px;
+  border: none;
+  border-radius: 10px;
+
+  &:disabled {
+    color: #b67f6c;
+  }
+}

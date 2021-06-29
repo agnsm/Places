@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserInfo } from '../_models/userInfo';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +9,16 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  userInfo: UserInfo = {
+    latitude: -1,
+    longitude: -1,
+    radius: -1
+  };
   form!: FormGroup;
   min: number = 500;
   max: number = 50000;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -24,7 +31,26 @@ export class HomeComponent implements OnInit {
  }
 
   search() {
-    console.log(this.form.value.radius);
+    if (this.form.controls.radius.invalid) {
+      this.form.controls.radius.markAsTouched();
+    } else {
+      this.userInfo.radius = this.form.controls.radius.value;
+      this.getLocation();
+    }
+  }
+
+  getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+          this.userInfo.longitude = position.coords.longitude;
+          this.userInfo.latitude = position.coords.latitude;
+          this.navigate();
+      });
+    }
+  }
+
+  navigate() {
+    this.router.navigateByUrl('/places', {state: {userInfo: this.userInfo} });
   }
 
 }

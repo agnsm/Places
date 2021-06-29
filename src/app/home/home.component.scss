@@ -60,9 +60,9 @@ input {
 }
 
 button {
-  margin-top: 75px;
-  padding: 10px 75px;
-  background-color: rgba(15, 15, 15, 0.7);
+  margin-top: 10%;
+  padding: 10px 60px;
+  background-color: rgba(15, 15, 15, 0.85);
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px 4px;
   color: #b67f6c;
   font-family: 'Poiret One', cursive;
@@ -75,4 +75,14 @@ button {
   &:disabled {
     color: #b67f6c;
   }
+}
+
+.info {
+  position: absolute;
+  bottom: 0;
+  padding: 3% 10%;
+  text-align: center;
+  background-color: rgba(15, 15, 15, 0.95);
+  color: $light-blue;
+  font-size: 0.75rem;
 }

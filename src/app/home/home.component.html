@@ -26,6 +26,9 @@
         </div>
     </div>
     </div>
-    <button type="submit" [disabled]="form.invalid">SZUKAJ</button>
+    <button type="submit">SZUKAJ</button>
   </form>
+</div>
+<div *ngIf="form.touched && !userInfo.latitude && !userInfo.longitude" class="info">
+  Jeśli chcesz skorzystać z aplikacji, musisz wyrazić zgodę na dostęp do lokalizacji
 </div>

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://api.opentripmap.com/0.1/'
+  otpApiUrl: 'https://api.opentripmap.com/0.1/en/places/',
+  otpApiKey: '5ae2e3f221c38a28845f05b6e3188dab12bf42585050e4651b17a307'
 };
 
 /*

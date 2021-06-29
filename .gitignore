@@ -46,3 +46,6 @@ Thumbs.db
 
 # IDE - VS
 .vs/*
+
+
+src/environments/environment.ts

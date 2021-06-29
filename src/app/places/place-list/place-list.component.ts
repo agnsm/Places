@@ -15,19 +15,29 @@ export class PlaceListComponent implements OnInit {
 
   constructor(private otpApi: OtpApiService, private router: Router) {
     this.userInfo = this.router.getCurrentNavigation()?.extras.state?.userInfo;
+    console.log(this.userInfo);
    }
 
   ngOnInit(): void {
     if (!this.userInfo) {
       this.router.navigateByUrl('/');
     } else {
-      console.log(this.userInfo);
       this.otpApi.findPlaces(this.userInfo).subscribe(response => {
         console.log(response);
-        this.places = response;
+        this.places = this.deleteBlank(response).sort((a, b) => b.rate - a.rate);
         console.log(this.places);
       });
     }
+  }
+
+  deleteBlank(places: Place[]): Place[] {
+    let i = places.length;
+    while (i--) {
+      if (places[i].name == '') {
+        places.splice(i, 1);
+      }
+    }
+    return places;
   }
 
 }

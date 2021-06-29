@@ -1,1 +1,8 @@
-<p>place-list works!</p>
+<p>Sortowane po ocenie:</p>
+<div *ngFor="let place of places">
+  <p>nazwa: {{place.name}}</p>
+  <p>kategorie: {{place.kinds}}</p>
+  <p>ocena: {{place.rate}}</p>
+  <p>odległość: {{place.dist}} km</p>
+  <p>współrzędne geograficzne: {{place.point.lat}} {{place.point.lon}}</p>
+</div>

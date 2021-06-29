@@ -1,5 +1,8 @@
 $light-blue: #c1bfc2;
 $very-light-blue: #cbd0d4;
+$orange: #cf7b47;
+$dusty: #b67f6c;
+$almost-black: rgba(15, 15, 15);
 
 .main-container {
   background: {
@@ -18,7 +21,7 @@ $very-light-blue: #cbd0d4;
 }
 
 .heading {
-  font-family: 'Poiret One', cursive;
+  font-family: 'Thasadith', sans-serif;
   position: fixed;
   top: 5%;
   padding: 0 5%;
@@ -55,7 +58,7 @@ input {
 .validation-info {
   margin-top: 10px;
   text-align: center;
-  color: #cf7b47;
+  color: $orange;
   font-size: 0.75rem;
 }
 
@@ -64,7 +67,7 @@ button {
   padding: 10px 60px;
   background-color: rgba(15, 15, 15, 0.85);
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px 4px;
-  color: #b67f6c;
+  color: $dusty;
   font-family: 'Poiret One', cursive;
   font-size: 1.25rem;
   font-weight: 700;
@@ -73,7 +76,7 @@ button {
   border-radius: 10px;
 
   &:disabled {
-    color: #b67f6c;
+    color: $dusty;
   }
 }
 

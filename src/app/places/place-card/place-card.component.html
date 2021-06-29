@@ -1,1 +1,19 @@
-<p>place-card works!</p>
+<div class="place-card">
+  <div class="name text-uppercase">{{place.name}}</div>
+  <div class="info">
+    <div class="rating">
+      <span>{{place.rate}}</span>
+      <div>ocena</div>
+    </div>
+    <div class="distance">
+      <span>{{place.dist}} km</span>
+      <div>odległość</div>
+    </div>
+    <div class="coordinates">
+      <span>{{place.point.lat}} {{place.point.lon}}</span>
+      <div>koordynaty</div>
+    </div>
+  </div>
+  <hr>
+  <div class="categories">{{place.kinds}}</div>
+</div>

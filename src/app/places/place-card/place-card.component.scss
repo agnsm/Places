@@ -1,0 +1,63 @@
+$light-blue: #c1bfc2;
+$very-light-blue: #cbd0d4;
+$orange: #cf7b47;
+$dusty: #b67f6c;
+$almost-black: rgba(15, 15, 15);
+
+.place-card {
+  padding: 20px 10px 10px 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  background-color: rgba(15, 15, 15, 0.95);
+  color: $very-light-blue;
+}
+
+.name {
+  font: {
+    family: 'Thasadith', sans-serif;
+    weight: 700;
+    size: 1.25rem;
+  }
+  letter-spacing: 2px;
+  margin-bottom: 20px;;
+}
+
+.info {
+  display: flex;
+  width: 100%;
+
+  > div {
+    min-height: 125px;
+    border-right: 1px $dusty solid;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  span {
+    color: $orange;
+    font-size: 1.25rem;
+    font-family: 'Thasadith', sans-serif;
+  }
+}
+
+.rating {
+  width: 25%;
+}
+
+.distance {
+  width: 30%;
+}
+
+.coordinates {
+  width: 45%;
+  border-right: none !important;
+}
+
+.categories {
+  padding: 10px;
+  color: $dusty;
+}

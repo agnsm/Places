@@ -1,0 +1,15 @@
+.main-container {
+  min-height: 100vh;
+  min-width: 100vw;
+  background: {
+    image: url(../..//../assets/images/bg-small.jpg);
+    position: center;
+    size: cover;
+    attachment: fixed;
+  }
+  padding: 0 5%;
+
+  p {
+    text-align: center;
+  }
+}

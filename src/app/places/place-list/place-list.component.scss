@@ -8,16 +8,12 @@ $almost-black: rgba(15, 15, 15);
 .main-container {
   min-height: 100vh;
   min-width: 100vw;
+  padding: 5% 5% 0 5%;
   background: {
     image: url(../..//../assets/images/bg-small.jpg);
     position: center;
     size: cover;
     attachment: fixed;
-  }
-  padding: 5% 5% 0 5%;
-
-  p {
-    text-align: center;
   }
 }
 
@@ -53,6 +49,19 @@ $almost-black: rgba(15, 15, 15);
   margin-top: 10px;
   border-radius: 5px;
   background: linear-gradient(180deg, transparent 15%, rgba(193,191,194,1) 75%);
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  margin-bottom: 25px;
+  border-top: 1px solid $dusty;
+  border-bottom: 1px solid $dusty;
+
+  fa-icon {
+    margin-right: 10px;
+  }
 }
 
 .no-places {

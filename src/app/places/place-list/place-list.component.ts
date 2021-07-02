@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Place } from 'src/app/_models/place';
 import { UserInfo } from 'src/app/_models/userInfo';
 import { OtpApiService } from 'src/app/_services/otp-api.service';
-import { faFilter, faSortAmountDown, faUndo } from '@fortawesome/free-solid-svg-icons';
+import { faFilter, faSortAmountDown, faStreetView, faThumbtack, faUndo } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-place-list',
@@ -14,6 +14,8 @@ import { faFilter, faSortAmountDown, faUndo } from '@fortawesome/free-solid-svg-
 export class PlaceListComponent implements OnInit {
   faSort = faSortAmountDown;
   faFilter = faFilter;
+  faRadius = faStreetView;
+  faLocation = faThumbtack;
   faUndo = faUndo;
   sortForm!: FormGroup;
   filterForm!: FormGroup;
@@ -21,14 +23,13 @@ export class PlaceListComponent implements OnInit {
   filterCollapsed = true;
   sortModes = ['rateDesc', 'rateAsc', 'distAsc', 'distDesc'];
   sortModesPL = ['Popularność malejąco', 'Popularność rosnąco', 'Odległość rosnąco', 'Odległość malejąco'];
-  categories = ['architecture', 'cultural', 'historic', 'industrial_facilities', 'natural', 'religion', 'sport', 'amusement', 'other'];
+  categories = ['architecture', 'cultural', 'historic', 'industrial_facilities', 'natural', 'religion', 'sport', 'amusements', 'other'];
   categoriesPL = ['architektura', 'kultura', 'historyczne', 'obiekty przemysłowe', 'natura', 'religia', 'sport', 'rozrywka', 'inne'];
   userInfo: UserInfo;
   places: Place[] = [];
 
   constructor(private otpApi: OtpApiService, private router: Router, private fb: FormBuilder) {
     this.userInfo = this.router.getCurrentNavigation()?.extras.state?.userInfo;
-    console.log(this.userInfo);
    }
 
   ngOnInit(): void {
@@ -48,7 +49,7 @@ export class PlaceListComponent implements OnInit {
       natural: false,
       religion: false,
       sport: false,
-      amusement: false,
+      amusements: false,
       other: false,
     });
   };
@@ -58,9 +59,8 @@ export class PlaceListComponent implements OnInit {
       this.router.navigateByUrl('/');
     } else {
       this.otpApi.findPlaces(this.userInfo).subscribe(response => {
-        console.log(response);
-        this.places = this.deleteBlank(response).sort((a, b) => b.rate - a.rate);
-        console.log(this.places);
+        this.places = this.deleteBlank(response);
+        this.sortPlaces();
       });
     }
   }
@@ -75,7 +75,7 @@ export class PlaceListComponent implements OnInit {
     return places;
   }
 
-  sort() {
+  sortPlaces() {
     switch (this.sortForm.value['sortMode']) {
       case this.sortModes[0]:
         this.places = this.places.sort((a, b) => b.rate - a.rate);
@@ -96,6 +96,19 @@ export class PlaceListComponent implements OnInit {
       default:
         break;
     }
+  }
+
+  filterPlaces() {
+    let kindsArr: string[] = [];
+    Object.keys(this.filterForm.controls).forEach(kind => {
+      if (this.filterForm.value[kind]) {
+        kindsArr.push(kind);
+      }
+    });
+    let kinds = kindsArr.join(',');
+    this.userInfo.kinds = kinds;
+    this.getPlaces();
+    this.sortPlaces();
   }
 
 }

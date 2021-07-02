@@ -15,7 +15,11 @@ export class OtpApiService {
   constructor(private http: HttpClient) { }
 
   findPlaces(userInfo: UserInfo) {
-    return this.http.get<Place[]>(this.baseUrl + 'radius?' + `radius=${userInfo.radius}&lon=${userInfo.longitude}&lat=${userInfo.latitude}&format=json&apikey=${this.apikey}`).pipe(
+    if (!userInfo.kinds) {
+      userInfo.kinds = 'interesting_places';
+    }
+    return this.http.get<Place[]>(this.baseUrl + 'radius?' + `radius=${userInfo.radius}&lon=${userInfo.longitude}&lat=${userInfo.latitude}&kinds=${userInfo.kinds}
+      &format=json&apikey=${this.apikey}`).pipe(
       map((places: Place[]) => {
         places.map((place) => {
           place.dist = Number((place.dist / 1000).toFixed(2));

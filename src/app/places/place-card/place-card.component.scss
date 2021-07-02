@@ -30,7 +30,7 @@ $almost-black: rgba(15, 15, 15);
 
   > div {
     min-height: 125px;
-    border-right: 1px $dusty solid;
+    border-right: 1px black solid;
     padding: 5px;
     display: flex;
     flex-direction: column;
@@ -45,7 +45,7 @@ $almost-black: rgba(15, 15, 15);
 }
 
 .rating {
-  width: 25%;
+  width: 35%;
 }
 
 .distance {
@@ -53,8 +53,23 @@ $almost-black: rgba(15, 15, 15);
 }
 
 .coordinates {
-  width: 45%;
+  width: 35%;
   border-right: none !important;
+}
+
+.map {
+  margin-top: 10px;
+  a {
+    color: $light-blue;
+  }
+  fa-icon {
+    color: $orange;
+    margin-left: 5px;
+  }
+}
+
+hr {
+  background-color: black;
 }
 
 .categories {

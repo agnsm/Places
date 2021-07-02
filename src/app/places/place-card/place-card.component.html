@@ -3,7 +3,7 @@
   <div class="info">
     <div class="rating">
       <span>{{place.rate}}</span>
-      <div>ocena</div>
+      <div>popularność</div>
     </div>
     <div class="distance">
       <span>{{place.dist}} km</span>
@@ -13,6 +13,9 @@
       <span>{{place.point.lat}} {{place.point.lon}}</span>
       <div>koordynaty</div>
     </div>
+  </div>
+  <div class="map">
+    <a href={{link}} target="_blank">Zobacz na mapie Google <fa-icon [icon]="faMap"></fa-icon></a>
   </div>
   <hr>
   <div class="categories">{{place.kinds}}</div>

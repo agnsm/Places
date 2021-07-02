@@ -10,12 +10,12 @@ import { UserInfo } from '../_models/userInfo';
 })
 export class HomeComponent implements OnInit {
   userInfo: UserInfo = {
-    latitude: 0,
-    longitude: 0,
-    radius: 0
+    latitude: -1,
+    longitude: -1,
+    radius: -1
   };
   form!: FormGroup;
-  min: number = 500;
+  min: number = 100;
   max: number = 50000;
 
   constructor(private fb: FormBuilder, private router: Router) { }

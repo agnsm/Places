@@ -1,6 +1,44 @@
 <div class="main-container">
-  <p>Sortowane po ocenie</p>
+  <div class="sorting-filtering">
+    <div class="sort">
+      <a (click)="collapse1.toggle(); !filterCollapsed && collapse2.toggle()">
+        Sortuj <fa-icon [icon]="faSort"></fa-icon>
+      </a>
+      <div #collapse1="ngbCollapse" [(ngbCollapse)]="sortCollapsed">
+        <form [formGroup]="sortForm" (change)="sort()">
+          <div ngbRadioGroup formControlName="sortMode" class="radio-buttons">
+            <label ngbButtonLabel *ngFor="let sortMode of sortModes; let i = index">
+              <input ngbButton type="radio" value={{sortMode}}>{{sortModesPL[i]}}
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="filter">
+      <a (click)="collapse2.toggle(); !sortCollapsed && collapse1.toggle()">
+        Filtruj <fa-icon [icon]="faFilter"></fa-icon>
+      </a>
+      <div #collapse2="ngbCollapse" [(ngbCollapse)]="filterCollapsed">
+        <form [formGroup]="filterForm">
+          <div class="checkboxes">
+            <label ngbButtonLabel *ngFor="let category of categories; let i = index">
+              <input ngbButton type="checkbox" formControlName={{category}}> {{categoriesPL[i]}}
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="sortCollapsed && filterCollapsed" class="user-info">
+    <p>Twoje koordynaty: {{userInfo.latitude}} {{userInfo.longitude}}.</p>
+    <p>Lista ciekawych miejsc w promieniu {{(userInfo.radius / 1000).toFixed(2)}} km:</p>
+  </div>
   <div *ngFor="let place of places">
     <app-place-card [place]="place" ></app-place-card>
+  </div>
+  <div *ngIf="!places.length && sortCollapsed && filterCollapsed" class="no-places">
+    <p>Nie znaleziono miejsc w danym promieniu.</p>
+    <p>Spróbuj powiększyć obszar poszukiwań.</p>
+    <a [routerLink]="['/']"><fa-icon [icon]="faUndo"></fa-icon>Wróć do strony startowej</a>
   </div>
 </div>

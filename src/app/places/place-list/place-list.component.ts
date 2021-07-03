@@ -5,14 +5,14 @@ import { Place } from 'src/app/_models/place';
 import { UserInfo } from 'src/app/_models/userInfo';
 import { OtpApiService } from 'src/app/_services/otp-api.service';
 import { faFilter, faSortAmountDown, faStreetView, faThumbtack, faUndo } from '@fortawesome/free-solid-svg-icons';
-import { flipInXOnEnterAnimation } from 'angular-animations';
+import { zoomInOnEnterAnimation } from 'angular-animations';
 
 @Component({
   selector: 'app-place-list',
   templateUrl: './place-list.component.html',
   styleUrls: ['./place-list.component.scss'],
   animations: [
-    flipInXOnEnterAnimation()
+    zoomInOnEnterAnimation({ duration: 500 })
   ]
 })
 export class PlaceListComponent implements OnInit {

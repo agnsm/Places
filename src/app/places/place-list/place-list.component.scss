@@ -31,6 +31,9 @@ $almost-black: rgba(15, 15, 15);
     font-weight: 700;
     color: $almost-black;
     cursor: pointer;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 
@@ -57,35 +60,33 @@ $almost-black: rgba(15, 15, 15);
 }
 
 .user-info {
-  display: flex;
-  justify-content: space-around;
   padding: 10px;
   margin-bottom: 25px;
   border-top: 1px solid $dusty;
   border-bottom: 1px solid $dusty;
-
+  text-align: center;
+  div {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+  }
   fa-icon {
     margin-right: 10px;
+  }
+  a {
+    color: black;
+    text-decoration: underline;
   }
 }
 
 .no-places {
-  width: 90%;
+  width: 100%;
   position: absolute;
-  left: 5%;
-  top: 40%;
-  padding: 10px;
+  left: 0;
+  top: 50%;
+  padding-top: 1rem;
   text-align: center;
-  background-color: rgba(15,15,15,0.9);
-  font-size: 0.8rem;
+  background-color: rgba(15,15,15,0.85);
+  font-size: 0.9rem;
   color: $light-blue;
-  border-radius: 5px;
-  a {
-    display: block;
-    font-size: 1rem;
-    color: $orange;
-  }
-  fa-icon {
-    margin-right: 5px;
-  }
 }

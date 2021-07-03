@@ -2,11 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserInfo } from '../_models/userInfo';
+import { slideInDownOnEnterAnimation, slideInUpOnEnterAnimation } from 'angular-animations';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations: [
+    slideInUpOnEnterAnimation(),
+    slideInDownOnEnterAnimation()
+  ]
 })
 export class HomeComponent implements OnInit {
   userInfo: UserInfo = {

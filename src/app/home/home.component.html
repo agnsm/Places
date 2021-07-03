@@ -1,9 +1,9 @@
 <div class="main-container">
-  <div class="heading">
+  <div class="heading" [@slideInDownOnEnter]>
     <h3>Ta aplikacja pozwoli Ci odkryć ciekawe miejsca w najbliższej okolicy</h3>
     <h5>Zainspiruj się i ruszaj w drogę</h5>
   </div>
-  <form [formGroup]="form" (ngSubmit)="search()">
+  <form [formGroup]="form" (ngSubmit)="search()" [@slideInUpOnEnter]>
     <div class="form-wrapper form-group">
       <label for="radius">Wyszukaj miejsca w promieniu:</label>
       <input

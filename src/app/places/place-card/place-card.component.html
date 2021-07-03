@@ -1,4 +1,4 @@
-<div class="place-card">
+<div class="place-card" snInViewport (inViewportChange)="onInViewportChange($event)" [@fadeIn]="cardVisible">
   <div class="name text-uppercase">{{place.name}}</div>
   <div class="info">
     <div class="rating">
@@ -15,7 +15,7 @@
     </div>
   </div>
   <div class="map">
-    <a href={{link}} target="_blank">Zobacz na mapie Google <fa-icon [icon]="faMap"></fa-icon></a>
+    <a href={{link}} target="_blank">Zobacz na mapie Google <fa-icon [icon]="faMap" snInViewport (inViewportChange)="onInViewportChangeIcon($event)" [@headShake]="iconVisible"></fa-icon></a>
   </div>
   <hr>
   <div class="categories">{{place.kinds}}</div>

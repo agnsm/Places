@@ -29,7 +29,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="sortCollapsed && filterCollapsed" class="user-info">
+  <div *ngIf="sortCollapsed && filterCollapsed" class="user-info" [@flipInYOnEnter]>
     <span><fa-icon [icon]="faLocation"></fa-icon>{{userInfo.latitude}} {{userInfo.longitude}}</span>
     <span><fa-icon [icon]="faRadius"></fa-icon>{{(userInfo.radius / 1000).toFixed(2)}} km</span>
   </div>

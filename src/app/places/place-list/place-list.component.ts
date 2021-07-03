@@ -5,11 +5,15 @@ import { Place } from 'src/app/_models/place';
 import { UserInfo } from 'src/app/_models/userInfo';
 import { OtpApiService } from 'src/app/_services/otp-api.service';
 import { faFilter, faSortAmountDown, faStreetView, faThumbtack, faUndo } from '@fortawesome/free-solid-svg-icons';
+import { flipInYOnEnterAnimation } from 'angular-animations';
 
 @Component({
   selector: 'app-place-list',
   templateUrl: './place-list.component.html',
-  styleUrls: ['./place-list.component.scss']
+  styleUrls: ['./place-list.component.scss'],
+  animations: [
+    flipInYOnEnterAnimation()
+  ]
 })
 export class PlaceListComponent implements OnInit {
   faSort = faSortAmountDown;
@@ -30,11 +34,15 @@ export class PlaceListComponent implements OnInit {
 
   constructor(private otpApi: OtpApiService, private router: Router, private fb: FormBuilder) {
     this.userInfo = this.router.getCurrentNavigation()?.extras.state?.userInfo;
+    if (!this.userInfo) {
+      this.router.navigateByUrl('/');
+    }
    }
 
   ngOnInit(): void {
     this.initializeForms();
     this.getPlaces();
+    this.sortPlaces();
   }
 
   initializeForms() {
@@ -55,14 +63,9 @@ export class PlaceListComponent implements OnInit {
   };
 
   getPlaces() {
-    if (!this.userInfo) {
-      this.router.navigateByUrl('/');
-    } else {
-      this.otpApi.findPlaces(this.userInfo).subscribe(response => {
-        this.places = this.deleteBlank(response);
-        this.sortPlaces();
-      });
-    }
+    this.otpApi.findPlaces(this.userInfo).subscribe(response => {
+      this.places = this.deleteBlank(response);
+    });
   }
 
   deleteBlank(places: Place[]): Place[] {

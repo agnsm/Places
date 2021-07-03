@@ -1,5 +1,5 @@
 <div class="main-container">
-  <div class="sorting-filtering">
+  <div *ngIf="!noPlaces" class="sorting-filtering">
     <div class="sort">
       <a (click)="collapse1.toggle(); !filterCollapsed && collapse2.toggle()">
         Sortuj <fa-icon [icon]="faSort"></fa-icon>
@@ -40,7 +40,7 @@
   <div *ngFor="let place of places">
     <app-place-card [place]="place" ></app-place-card>
   </div>
-  <div *ngIf="!places.length && sortCollapsed && filterCollapsed" class="no-places">
+  <div *ngIf="noPlaces" class="no-places">
     <p>Nie znaleziono miejsc w danym promieniu.</p>
     <p>Spróbuj powiększyć obszar poszukiwań.</p>
   </div>

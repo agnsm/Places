@@ -31,6 +31,7 @@ export class PlaceListComponent implements OnInit {
   categoriesPL = ['architektura', 'kultura', 'historyczne', 'obiekty przemysłowe', 'natura', 'religia', 'sport', 'rozrywka', 'inne'];
   userInfo: UserInfo;
   places: Place[] = [];
+  noPlaces = false;
 
   constructor(private otpApi: OtpApiService, private router: Router, private fb: FormBuilder) {
     this.userInfo = this.router.getCurrentNavigation()?.extras.state?.userInfo;
@@ -65,6 +66,9 @@ export class PlaceListComponent implements OnInit {
   getPlaces() {
     this.otpApi.findPlaces(this.userInfo).subscribe(response => {
       this.places = this.deleteBlank(response);
+      if (!this.places.length) {
+        this.noPlaces = true;
+      }
     });
   }
 

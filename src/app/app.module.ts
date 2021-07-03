@@ -12,6 +12,7 @@ import { PlaceCardComponent } from './places/place-card/place-card.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InViewportModule } from '@thisissoon/angular-inviewport';
+import { NgxScrollTopModule } from 'ngx-scrolltop';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { InViewportModule } from '@thisissoon/angular-inviewport';
     HttpClientModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    InViewportModule
+    InViewportModule,
+    NgxScrollTopModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -28,6 +28,7 @@
     "@thisissoon/angular-inviewport": "^4.2.2",
     "angular-animations": "^0.11.0",
     "bootstrap": "^4.5.0",
+    "ngx-scrolltop": "^2.4.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4"

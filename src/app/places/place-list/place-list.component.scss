@@ -8,7 +8,7 @@ $almost-black: rgba(15, 15, 15);
 .main-container {
   min-height: 100vh;
   min-width: 100vw;
-  padding: 5% 5% 0 5%;
+  padding: 5% 0;
   background: {
     image: url(../..//../assets/images/bg-small.jpg);
     position: center;
@@ -22,10 +22,15 @@ $almost-black: rgba(15, 15, 15);
   width: 100%;
   text-align: center;
   margin-bottom: 25px;
+  padding: {
+    left: 5%;
+    right: 5%;
+  }
 
   a {
     font-weight: 700;
     color: $almost-black;
+    cursor: pointer;
   }
 }
 

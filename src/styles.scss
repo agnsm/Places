@@ -8,13 +8,13 @@ body {
   overflow-x: hidden;
 }
 
-@include media-breakpoint-up(md) {
+@media (min-width: 768px) {
   html {
     font-size: 18px;
   }
 }
 
-@include media-breakpoint-up(xxl) {
+@media (min-width: 1400px) {
   html {
     font-size: 20px;
   }

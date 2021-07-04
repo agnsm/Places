@@ -4,15 +4,19 @@ $orange: #cf7b47;
 $dusty: #b67f6c;
 $almost-black: rgba(15, 15, 15);
 
-.main-container {
+.photo-bg {
   background: {
     image: url(../../assets/images/bg-small.jpg);
-    position: center;
+    position: 50% 40%;
     size: cover;
   }
   min-height: 100vh;
-  min-width: 100vw;
-  padding: 0 5%;
+  width: 100vw;
+}
+.main-container {
+  min-height: 100vh;
+  width: 100vw;
+  padding: 5%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -22,7 +26,7 @@ $almost-black: rgba(15, 15, 15);
 
 .heading {
   font-family: 'Thasadith', sans-serif;
-  position: fixed;
+  position: absolute;
   top: 5%;
   padding: 0 5%;
 }
@@ -31,28 +35,27 @@ h5 {
   margin-top: 25px;
 }
 
-.form-wrapper {
+.input-wrapper {
   padding: 3%;
   background-color: rgba(15, 15, 15, 0.7);
+  label {
+    color: $light-blue;
+  }
+
+  input {
+    text-align: center;
+    background-color: $light-blue;
+
+    &:focus {
+      background-color: $very-light-blue;
+      box-shadow: $orange 0 0 3px 1px;
+    }
+  }
 }
 
 form {
   margin-top: 15rem;
   width: 100%;
-}
-
-label {
-  color: $light-blue;
-}
-
-input {
-  text-align: center;
-  background-color: $light-blue;
-
-  &:focus {
-    background-color: $very-light-blue;
-    box-shadow: $orange 0 0 3px 1px;
-  }
 }
 
 .validation-info {
@@ -77,7 +80,6 @@ button {
 
   &:active {
     background-color: rgba(15, 15, 15, 0.95);
-
   }
 }
 
@@ -91,11 +93,87 @@ button {
   font-size: 0.75rem;
 }
 
+
 @media (min-width: 768px) {
-  .main-container {
+  .photo-bg {
     background: {
       image: url(../../assets/images/bg-medium.jpg);
       position: 50% 40%;
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .black-bg {
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.65);
+    min-height: 100vh;
+    min-width: 100vw;
+  }
+  .photo-bg {
+    background: {
+      image: url(../../assets/images/bg-large.jpg);
+      position: 50% 40%;
+    }
+  }
+  .main-container {
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    color: white;
+  }
+
+  .heading {
+    position: initial;
+    padding: 0;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    h3 {
+      font-size: 2.4rem;
+    }
+    h5 {
+      font-size: 1.5rem;
+      margin-top: 0;
+      color: $orange;
+    }
+  }
+
+  form {
+    margin-top: 0;
+  }
+  .input-wrapper {
+    margin-top: 75px;
+    width: 30%;
+    padding: 0;
+    background-color: transparent;
+    label {
+      font-size: 1.2rem;
+      color: white;
+      font-family: 'Thasadith', sans-serif;
+    }
+    input {
+      text-align: center;
+      background-color: white;
+
+      &:focus {
+        background-color: white;
+      }
+    }
+  }
+  .validation-info {
+    font-family: 'Thasadith', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  button {
+    margin-top: 0;
+    width: 30%;
+    color: black;
+    background-color: $orange;
+    letter-spacing: 7px;
+    &:active {
+      background-color: $dusty;
     }
   }
 }

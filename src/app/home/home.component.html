@@ -1,33 +1,39 @@
-<div class="main-container">
-  <div class="heading" [@slideInDownOnEnter]>
-    <h3>Ta aplikacja pozwoli Ci odkryć ciekawe miejsca w najbliższej okolicy</h3>
-    <h5>Zainspiruj się i ruszaj w drogę</h5>
+<div class="photo-bg">
+  <div class="black-bg">
+    <div class="main-container">
+      <div class="heading" [@slideInDownOnEnter]>
+        <h3>Ta aplikacja pozwoli Ci odkryć ciekawe miejsca w najbliższej okolicy</h3>
+        <h5>Zainspiruj się i ruszaj w drogę</h5>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="search()" [@slideInUpOnEnter]>
+        <div class="form-wrapper">
+          <div class="input-wrapper form-group">
+            <label for="radius">Wyszukaj miejsca w promieniu:</label>
+            <input
+              type="number"
+              formControlName="radius"
+              class="form-control"
+              id="radius"
+              placeholder="1000 metrów">
+            <div class="validation-info">
+              <div
+                *ngIf="form.controls.radius.errors?.required
+                && (form.controls.radius.dirty || form.controls.radius.touched)">
+                Pole nie może być puste
+              </div>
+              <div *ngIf="form.controls.radius.errors?.min">
+                Promień musi byc większy niż {{min}} metrów
+              </div>
+              <div *ngIf="form.controls.radius.errors?.max">
+                Promień nie może być większy niż {{max}} metrów
+              </div>
+            </div>
+          </div>
+          <div><button type="submit">SZUKAJ</button></div>
+        </div>
+      </form>
+    </div>
   </div>
-  <form [formGroup]="form" (ngSubmit)="search()" [@slideInUpOnEnter]>
-    <div class="form-wrapper form-group">
-      <label for="radius">Wyszukaj miejsca w promieniu:</label>
-      <input
-        type="number"
-        formControlName="radius"
-        class="form-control"
-        id="radius"
-        placeholder="1000 metrów">
-        <div class="validation-info">
-        <div
-          *ngIf="form.controls.radius.errors?.required
-          && (form.controls.radius.dirty || form.controls.radius.touched)">
-          Pole nie może być puste
-        </div>
-        <div *ngIf="form.controls.radius.errors?.min">
-          Promień musi byc większy niż {{min}} metrów
-        </div>
-        <div *ngIf="form.controls.radius.errors?.max">
-          Promień nie może być większy niż {{max}} metrów
-        </div>
-    </div>
-    </div>
-    <button type="submit">SZUKAJ</button>
-  </form>
 </div>
 <div *ngIf="form.touched && !userInfo.latitude && !userInfo.longitude" class="info">
   Jeśli chcesz skorzystać z aplikacji, musisz wyrazić zgodę na dostęp do lokalizacji

@@ -7,11 +7,11 @@ $almost-black: rgba(15, 15, 15);
 
 .main-container {
   min-height: 100vh;
-  min-width: 100vw;
+  width: 100vw;
   padding: 1.5rem 0;
   background: {
     image: url(../..//../assets/images/bg-small.jpg);
-    position: center;
+    position: 50% 40%;
     size: cover;
     attachment: fixed;
   }

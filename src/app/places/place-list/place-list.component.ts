@@ -30,6 +30,7 @@ export class PlaceListComponent implements OnInit {
   categories = ['architecture', 'cultural', 'historic', 'industrial_facilities', 'natural', 'religion', 'sport', 'amusements', 'other'];
   categoriesPL = ['architektura', 'kultura', 'historyczne', 'obiekty przemysłowe', 'natura', 'religia', 'sport', 'rozrywka', 'inne'];
   userInfo: UserInfo;
+  link = '';
   places: Place[] = [];
   noPlaces = false;
   filterMode = false;
@@ -44,12 +45,12 @@ export class PlaceListComponent implements OnInit {
   ngOnInit(): void {
     this.initializeForms();
     this.getPlaces();
-    this.sortPlaces();
+    this.link = 'https://www.google.com/maps/place/' + this.userInfo.latitude + ',' + this.userInfo.longitude;
   }
 
   initializeForms() {
     this.sortForm = this.fb.group({
-      sortMode: 'rateDesc',
+      sortMode: this.sortModes[0],
     });
     this.filterForm = this.fb.group({
       architecture: false,
@@ -72,6 +73,7 @@ export class PlaceListComponent implements OnInit {
       } else {
         this.noPlaces = false;
       }
+      this.sortPlaces();
     });
   }
 
@@ -119,7 +121,6 @@ export class PlaceListComponent implements OnInit {
     let kinds = kindsArr.join(',');
     this.userInfo.kinds = kinds;
     this.getPlaces();
-    this.sortPlaces();
   }
 
 }

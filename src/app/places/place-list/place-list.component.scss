@@ -1,6 +1,6 @@
-$blue: #a2a6b2;
 $light-blue: #c1bfc2;
 $very-light-blue: #cbd0d4;
+$blue: #9098a5;
 $orange: #cf7b47;
 $dusty: #b67f6c;
 $almost-black: rgba(15, 15, 15);
@@ -33,6 +33,7 @@ $almost-black: rgba(15, 15, 15);
     cursor: pointer;
     &:hover {
       text-decoration: none;
+      color: $dusty;
     }
   }
 }
@@ -55,8 +56,13 @@ $almost-black: rgba(15, 15, 15);
   display: flex;
   flex-direction: column;
   margin-top: 10px;
-  border-radius: 25px;
   background: linear-gradient(180deg, transparent 15%, rgba(193,191,194,1) 75%);
+
+  border: {
+    bottom: 1px solid $dusty;
+    left: 1px solid $dusty;
+    right: 1px solid $dusty;
+  }
 }
 
 .user-info {
@@ -75,7 +81,6 @@ $almost-black: rgba(15, 15, 15);
   }
   a {
     color: black;
-    text-decoration: underline;
   }
 }
 
@@ -96,7 +101,7 @@ $almost-black: rgba(15, 15, 15);
   .main-container {
     background: {
       image: url('../../../assets/images/bg-medium.jpg');
-      position: 50% 30%;
+      position: 50% 40%;
     }
   }
   .radio-buttons, .checkboxes {
@@ -110,22 +115,60 @@ $almost-black: rgba(15, 15, 15);
   }
   .user-info {
     display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
+    padding: 10px 5%;
     div {
       margin-bottom: 0;
-      span {
-        padding: 0 10px;
+      width: 50%;
+      text-align: center;
+      display: initial;
+      span:first-of-type {
+        margin-right: 20px;
       }
     }
     a {
-      padding: 0 10px;
+      width: 50%;
+      text-align: center;
     }
   }
 }
 
-@media (min-width: 992px) {
-  .user-info {
-    padding: 10px 100px;
+@media (min-width: 1400px) {
+  .main-container {
+    background: {
+      image: url('../../../assets/images/bg-large.jpg');
+      position: 50% 40%;
+    }
+  }
+
+  form {
+    display: flex;
+    justify-content: center;
+  }
+
+  .radio-buttons, .checkboxes {
+    width: 60%;
+    text-align: center;
+    padding: {
+      left: 15px;
+      bottom: 15px;
+    }
+  }
+
+  .places-container {
+    width: 100%;
+    padding: 0 5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .place-container {
+    width: 45%;
+    margin: {
+      right: 2%;
+      left: 2%;
+      bottom: 25px;
+    }
   }
 }

@@ -1,5 +1,6 @@
 $light-blue: #c1bfc2;
 $very-light-blue: #cbd0d4;
+$blue: #9098a5;
 $orange: #cf7b47;
 $dusty: #b67f6c;
 $almost-black: rgba(15, 15, 15);
@@ -105,8 +106,6 @@ button {
 
 @media (min-width: 1400px) {
   .black-bg {
-    position: fixed;
-    z-index: 1;
     background-color: rgba(0, 0, 0, 0.65);
     min-height: 100vh;
     min-width: 100vw;
@@ -134,7 +133,6 @@ button {
     h5 {
       font-size: 1.5rem;
       margin-top: 0;
-      color: $orange;
     }
   }
 
@@ -157,6 +155,7 @@ button {
 
       &:focus {
         background-color: white;
+        box-shadow: $orange 0 0 4px 2px;
       }
     }
   }

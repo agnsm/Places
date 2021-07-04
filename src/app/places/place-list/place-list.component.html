@@ -31,15 +31,18 @@
   </div>
   <div *ngIf="sortCollapsed && filterCollapsed" class="user-info" [@zoomInOnEnter]>
     <div>
-      <span><fa-icon [icon]="faLocation"></fa-icon>{{userInfo.latitude}} {{userInfo.longitude}}</span>
+      <span><a href={{link}} target="_blank"><fa-icon [icon]="faLocation"></fa-icon>{{userInfo.latitude}} {{userInfo.longitude}}</a></span>
       <span><fa-icon [icon]="faRadius"></fa-icon>{{(userInfo.radius / 1000).toFixed(2)}} km</span>
     </div>
     <a [routerLink]="['/']" class="return"><fa-icon [icon]="faUndo"></fa-icon>Wróć do strony głównej</a>
   </div>
 
-  <div *ngFor="let place of places">
-    <app-place-card [place]="place" ></app-place-card>
+  <div class="places-container">
+    <div *ngFor="let place of places" class="place-container">
+      <app-place-card [place]="place"></app-place-card>
+    </div>
   </div>
+
   <div *ngIf="noPlaces&& !filterMode" class="no-places">
     <p>Nie znaleziono miejsc w danym promieniu.</p>
     <p>Spróbuj powiększyć obszar poszukiwań.</p>
@@ -49,4 +52,4 @@
     <p>Spróbuj powiększyć obszar poszukiwań lub zmienić kategorię.</p>
   </div>
 </div>
-<ngx-scrolltop backgroundColor="#cf7b47" symbolColor="#000"></ngx-scrolltop>
+<ngx-scrolltop backgroundColor="#9098a5" symbolColor="#000"></ngx-scrolltop>

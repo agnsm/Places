@@ -1,11 +1,12 @@
 $light-blue: #c1bfc2;
 $very-light-blue: #cbd0d4;
+$blue: #9098a5;
 $orange: #cf7b47;
 $dusty: #b67f6c;
 $almost-black: rgba(15, 15, 15);
 
 .place-card {
-  padding: 20px 10px 10px 10px;
+  padding: 20px 10px 20px 10px;
   margin-bottom: 20px;
   text-align: center;
   background-color: rgba(15, 15, 15, 0.95);
@@ -37,7 +38,7 @@ $almost-black: rgba(15, 15, 15);
   }
 
   span {
-    color: $orange;
+    color: $blue;
     font-size: 1.25rem;
     font-family: 'Thasadith', sans-serif;
   }
@@ -73,7 +74,7 @@ hr {
 }
 
 .categories {
-  padding: 10px;
+  padding: 0 10px;
   color: $dusty;
 }
 
@@ -97,6 +98,37 @@ hr {
       left: 5%;
       right: 5%;
     }
-    border-radius: 25px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .place-card {
+    margin: 0;
+  }
+
+  .rating {
+    width: 30%;
+  }
+
+  .distance {
+    width: 30%;
+  }
+
+  .coordinates {
+    width: 40%;
+  }
+
+  .name {
+    height: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .categories {
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }

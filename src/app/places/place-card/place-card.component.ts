@@ -22,7 +22,7 @@ export class PlaceCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.link = 'https://www.google.com/maps/place/' + this.place.point.lat + ',' + this.place.point.lon;
+    this.link = 'https://www.google.com/maps?t=k&q=loc:' + this.place.point.lat + ',' + this.place.point.lon;
   }
 
   onInViewportChange(inViewport: boolean) {

@@ -47,7 +47,9 @@ export class PlaceListComponent implements OnInit {
   ngOnInit(): void {
     this.initializeForms();
     this.getPlaces();
-    this.link = 'https://www.google.com/maps/place/' + this.userInfo.latitude + ',' + this.userInfo.longitude;
+    this.link = 'https://www.google.com/maps?t=k&q=loc:' + this.userInfo.latitude + ',' + this.userInfo.longitude;
+    this.userInfo.latitude = Number(this.userInfo.latitude.toString().substring(0,11));
+    this.userInfo.longitude = Number(this.userInfo.longitude.toString().substring(0,11));
   }
 
   initializeForms() {

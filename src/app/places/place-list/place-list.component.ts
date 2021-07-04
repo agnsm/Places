@@ -4,15 +4,16 @@ import { Router } from '@angular/router';
 import { Place } from 'src/app/_models/place';
 import { UserInfo } from 'src/app/_models/userInfo';
 import { OtpApiService } from 'src/app/_services/otp-api.service';
-import { faFilter, faSortAmountDown, faStreetView, faThumbtack, faUndo } from '@fortawesome/free-solid-svg-icons';
-import { zoomInOnEnterAnimation } from 'angular-animations';
+import { faFilter, faFrownOpen, faSortAmountDown, faStreetView, faThumbtack, faUndo } from '@fortawesome/free-solid-svg-icons';
+import { shakeOnEnterAnimation, zoomInOnEnterAnimation } from 'angular-animations';
 
 @Component({
   selector: 'app-place-list',
   templateUrl: './place-list.component.html',
   styleUrls: ['./place-list.component.scss'],
   animations: [
-    zoomInOnEnterAnimation({ duration: 500 })
+    zoomInOnEnterAnimation({ duration: 500 }),
+    shakeOnEnterAnimation()
   ]
 })
 export class PlaceListComponent implements OnInit {
@@ -21,6 +22,7 @@ export class PlaceListComponent implements OnInit {
   faRadius = faStreetView;
   faLocation = faThumbtack;
   faUndo = faUndo;
+  faSad = faFrownOpen;
   sortForm!: FormGroup;
   filterForm!: FormGroup;
   sortCollapsed = true;

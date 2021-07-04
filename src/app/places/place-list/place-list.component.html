@@ -43,13 +43,15 @@
     </div>
   </div>
 
-  <div *ngIf="noPlaces&& !filterMode" class="no-places">
+  <div *ngIf="noPlaces&& !filterMode" class="no-places" [@shakeOnEnter]>
     <p>Nie znaleziono miejsc w danym promieniu.</p>
     <p>Spróbuj powiększyć obszar poszukiwań.</p>
+    <fa-icon [icon]="faSad"></fa-icon>
   </div>
-  <div *ngIf="noPlaces && filterMode" class="no-places">
+  <div *ngIf="noPlaces && filterMode" class="no-places" [@shakeOnEnter]>
     <p>Nie znaleziono miejsc z tej kategorii w danym promieniu.</p>
     <p>Spróbuj powiększyć obszar poszukiwań lub zmienić kategorię.</p>
+    <a [routerLink]="['/']" class="return"><fa-icon [icon]="faUndo"></fa-icon>Wróć do strony głównej</a>
   </div>
 </div>
 <ngx-scrolltop backgroundColor="#9098a5" symbolColor="#000"></ngx-scrolltop>

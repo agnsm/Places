@@ -35,6 +35,6 @@
     </div>
   </div>
 </div>
-<div *ngIf="form.touched && !userInfo.latitude && !userInfo.longitude" class="info">
-  Jeśli chcesz skorzystać z aplikacji, musisz wyrazić zgodę na dostęp do lokalizacji
+<div *ngIf="userInfo.latitude == -1 && userInfo.longitude == -1 && userInfo.radius != -1" class="info">
+  Jeśli chcesz skorzystać z aplikacji, musisz wyrazić zgodę na dostęp do lokalizacji.
 </div>

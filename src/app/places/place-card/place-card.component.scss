@@ -19,7 +19,8 @@ $almost-black: rgba(15, 15, 15);
     size: 1.25rem;
   }
   letter-spacing: 2px;
-  margin-bottom: 20px;;
+  margin-bottom: 20px;
+  padding: 0 1rem;
 }
 
 .info {
@@ -58,7 +59,7 @@ $almost-black: rgba(15, 15, 15);
 .map {
   margin-top: 10px;
   a {
-    color: $light-blue;
+    color: $very-light-blue;
   }
   fa-icon {
     display: inline-block;
@@ -74,4 +75,28 @@ hr {
 .categories {
   padding: 10px;
   color: $dusty;
+}
+
+@media (min-width: 768px) {
+  .rating {
+    width: 33%;
+  }
+
+  .distance {
+    width: 34%;
+  }
+
+  .coordinates {
+    width: 33%;
+  }
+}
+
+@media (min-width: 992px) {
+  .place-card {
+    margin: {
+      left: 5%;
+      right: 5%;
+    }
+    border-radius: 25px;
+  }
 }

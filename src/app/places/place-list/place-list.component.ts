@@ -32,6 +32,7 @@ export class PlaceListComponent implements OnInit {
   userInfo: UserInfo;
   places: Place[] = [];
   noPlaces = false;
+  filterMode = false;
 
   constructor(private otpApi: OtpApiService, private router: Router, private fb: FormBuilder) {
     this.userInfo = this.router.getCurrentNavigation()?.extras.state?.userInfo;
@@ -68,6 +69,8 @@ export class PlaceListComponent implements OnInit {
       this.places = this.deleteBlank(response);
       if (!this.places.length) {
         this.noPlaces = true;
+      } else {
+        this.noPlaces = false;
       }
     });
   }
@@ -106,6 +109,7 @@ export class PlaceListComponent implements OnInit {
   }
 
   filterPlaces() {
+    this.filterMode = true;
     let kindsArr: string[] = [];
     Object.keys(this.filterForm.controls).forEach(kind => {
       if (this.filterForm.value[kind]) {

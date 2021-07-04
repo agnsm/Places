@@ -51,7 +51,7 @@ input {
 
   &:focus {
     background-color: $very-light-blue;
-    box-shadow: none;
+    box-shadow: $orange 0 0 3px 1px;
   }
 }
 
@@ -75,8 +75,9 @@ button {
   border: none;
   border-radius: 10px;
 
-  &:disabled {
-    color: $dusty;
+  &:active {
+    background-color: rgba(15, 15, 15, 0.95);
+
   }
 }
 
@@ -88,4 +89,13 @@ button {
   background-color: rgba(15, 15, 15, 0.95);
   color: $light-blue;
   font-size: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .main-container {
+    background: {
+      image: url(../../assets/images/bg-medium.jpg);
+      position: 50% 40%;
+    }
+  }
 }
